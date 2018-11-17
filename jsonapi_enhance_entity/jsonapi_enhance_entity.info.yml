@@ -1,0 +1,7 @@
+name: JSON API Enhanced Entity
+type: module
+description: Provides enhancements for an entity with using the JSON API module
+core: 8.x
+package: Custom
+dependencies:
+  - drupal:jsonapi
