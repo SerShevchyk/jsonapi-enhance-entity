@@ -23,10 +23,9 @@ class JsonApiEditEntityUrl extends FieldItemList {
     $entity = $this->getEntity();
 
     if (!$entity->isNew()) {
-      $value = $entity->access('edit', NULL, FALSE) ?
-        $entity->toUrl('edit-form', ['absolute' => TRUE])
-          ->toString() : NULL;
-      $this->list[] = $this->createItem(0, $value);
+      if ($entity->access('edit', NULL, FALSE)) {
+        $this->list[] = $this->createItem(0, $entity->toUrl('edit-form', ['absolute' => TRUE])->toString());
+      }
     }
   }
 }
